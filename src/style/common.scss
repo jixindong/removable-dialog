@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+*::selection {
+	color: #fff;
+	background-color: #93d5dc;
+}
+iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// 可移动对话框
+#removableDialog {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: 500px;
+	overflow: hidden;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px #93d5dc;
+	z-index: 1;
+	// 顶部
+	.removableDialogHd {
+		padding: 0 20px;
+		height: 40px;
+		color: #fff;
+		background-color: #0094ff;
+		cursor: move;
+		user-select: none;
+	}
+	// 顶部 end
+	// 主体
+	.removableDialogBd {
+		padding: 10px 20px;
+		height: 400px;
+		font-size: 14px;
+		background-color: #fff;
+		.btn {
+			margin: 0 10px;
+			padding: 6px 20px;
+			color: #409eff;
+			background-color: #ecf5ff;
+			border: 1px solid #b3d8ff;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	}
+	// 主体 end
+}
+// 可移动对话框 end
