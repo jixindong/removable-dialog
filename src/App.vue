@@ -5,9 +5,12 @@
 		<!-- 嵌入文档 end -->
 
 		<!-- 可移动对话框 -->
-		<div id="removableDialog" ref="removableDialogRef">
+		<div id="removableDialog" ref="removableDialogRef" v-show="reDlgShow">
 			<!-- 顶部 -->
-			<div class="removableDialogHd" ref="removableDialogHdRef" @mousedown="removeStart($event)" @mouseup="removeEnd"></div>
+			<div class="removableDialogHd" ref="removableDialogHdRef" @mousedown="removeStart($event)" @mouseup="removeEnd">
+				<!-- 隐藏按钮 -->
+				<img src="@/assets/minus.svg" class="btn" @click="reDlgShow = false">
+			</div>
 
 			<!-- 主体 -->
 			<div class="removableDialogBd" ref="removableDialogBdRef">
@@ -18,6 +21,10 @@
 			</div>
 		</div>
 		<!-- 可移动对话框 end -->
+		
+		<!-- 可移动对话框 显示按钮 -->
+		<div class="reDlgShowBtn" @click="reDlgShow = true" v-show="!reDlgShow">显示</div>
+		<!-- 可移动对话框 显示按钮 end -->
 	</div>
 </template>
 
@@ -27,6 +34,7 @@ export default {
 	data() {
 		return {
 			// ------------------------ 可移动对话框 ------------------------
+			reDlgShow:true,//是否显示
 			isRemove: false, //是否移动
 			reDlgX: '',
 			reDlgY: '',
@@ -118,7 +126,7 @@ export default {
 			let { data } = msg;
 
 			if (data.cmd) {
-				if (data.cmd == 'answer') {
+				if (data.cmd === 'answer') {
 					this.answerRecords[this.examQuestionID] = data.params.answer;
 
 					console.log('答案：', this.answerRecords);

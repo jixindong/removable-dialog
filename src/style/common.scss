@@ -26,12 +26,20 @@ iframe {
 	z-index: 1;
 	// 顶部
 	.removableDialogHd {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
 		padding: 0 20px;
 		height: 40px;
 		color: #fff;
 		background-color: #0094ff;
 		cursor: move;
 		user-select: none;
+		.btn{
+			width: 20px;
+			cursor: pointer;
+			user-select: auto;
+		}
 	}
 	// 顶部 end
 	// 主体
@@ -53,3 +61,17 @@ iframe {
 	// 主体 end
 }
 // 可移动对话框 end
+
+// 可移动对话框 显示按钮
+.reDlgShowBtn{
+	position: fixed;
+	right: 12px;
+	bottom: 4px;
+	padding: 6px 36px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	background-color: #0094ff;
+	cursor: pointer;
+	z-index: 1;
+}
